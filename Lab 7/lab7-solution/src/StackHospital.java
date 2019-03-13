@@ -8,7 +8,6 @@ public class StackHospital<PatientType> extends Hospital<PatientType>{
 	{
 	
 	}
-	@Override
 	public void addPatient(PatientType patient) 
 	{
 		stack.push(patient);
@@ -16,7 +15,7 @@ public class StackHospital<PatientType> extends Hospital<PatientType>{
 	
 	public PatientType nextPatient() 
 	{
-		return stack.lastElement();
+		return stack.peek();
 	}
 	
 	public PatientType treatNextPatient() 
@@ -24,7 +23,6 @@ public class StackHospital<PatientType> extends Hospital<PatientType>{
 		PatientType temp = stack.lastElement();
 		//^^ store patient to be popped in return variable
 		stack.pop();
-		
 		return temp;
 	}
 	
@@ -35,7 +33,7 @@ public class StackHospital<PatientType> extends Hospital<PatientType>{
 	
 	public String hospitalType() 
 	{
-		return " " + this.getClass().getName();	
+		return "Stack";	
 	}
 	
 	public String allPatientInfo() 
@@ -44,7 +42,7 @@ public class StackHospital<PatientType> extends Hospital<PatientType>{
 		
 		for (int index = 0; index < stack.size(); ++index) 
 		{
-			patients += stack.elementAt(index).toString();
+			patients = patients + stack.elementAt(index).toString();
 		}
 		return patients;
 	}
